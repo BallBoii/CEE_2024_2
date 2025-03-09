@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokémon Info Class Tester</title>
+</head>
+<link rel="stylesheet" href="style_2_2.css">
+<body>
+    <div id="output">
+        <!-- The Pokémon information will be displayed here -->
+    </div>
+    <script src="pokemonData.js"></script>
+    <script src="script.js"></script>
+    <script>
+        pokeAPIGet("pokemon/4")
+        .then(data => doSomethingWithData(data))
+        .catch(error => console.error("Error fetching Pokémon:", error));
+
+        function doSomethingWithData(data) {
+            
+            let Poke1 = new PokemonData(data);
+            document.getElementById("output").innerHTML = Poke1.renderInfoTable();
+            console.log(Poke1.getApiData());
+            
+        }
+    </script>
+</body>
+</html>

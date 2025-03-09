@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Pokédex</title>
+  <link rel="stylesheet" href="style_2_3.css">
+</head>
+<body>
+  <!-- Sidebar to list Pokémon -->
+  <div id="sidebar">
+    <h2>Pokémon List</h2>
+    <!-- List items will be added dynamically here -->
+  </div>
+  <!-- Main panel to display Pokémon details -->
+  <div id="mainPanel">
+    <h2>Pokémon Details</h2>
+    <div id="card-display-area"></div>
+    <!-- Detailed card will be rendered here -->
+  </div>
+  <script src="pokemonData.js"></script>
+  <script src="script.js"></script>
+  <script src="script_2_3.js"></script>
+  <script> fetchPokemonListAndAddToSideBar() </script>
+</body>
+</html>

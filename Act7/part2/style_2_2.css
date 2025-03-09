@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+#output {
+    background-color: #DFDFDF;
+    min-height: 200px;
+    padding: 20px;
+}
+table.pokemon-info-table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    color:black;
+}
+.pokemon-info-table > thead > tr > th {
+    border-bottom: 1px solid black;
+}
+.pokemon-info-table > tbody > tr > td {
+    border-bottom: 1px dotted black;
+}
+.pokemon-info-table > tbody > tr > td > .api-data{
+    max-height: 200px;
+    overflow: auto;
+}
