@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PokéAPI Tester - Part 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    input, button { padding: 8px; margin: 5px 0; width: 300px; }
+    pre { background: #efefef; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    .container { max-width: 800px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PokéAPI Tester - Part 1</h1>
+    <p>Enter the endpoint (after the base URL) and query parameters (if any).</p>
+    <p>Base URL: <code>https://pokeapi.co/api/v2/</code></p>
+    <form id="apiForm">
+      <label for="endpoint">Endpoint (e.g., <code>pokemon/1</code>):</label>
+      <input type="text" id="endpoint" name="endpoint" placeholder="pokemon/1" required>
+      
+      <label for="params">Query Parameters (optional, e.g., <code>limit=10&amp;offset=0</code>):</label>
+      <input type="text" id="params" name="params" placeholder="limit=10&offset=0">
+      
+      <button type="submit">Fetch Data</button>
+    </form>
+    <h2>API Response:</h2>
+    <pre id="response">Your formatted JSON response will appear here...</pre>
+  </div>
+
+  <script>
+    document.getElementById('apiForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Base URL for PokéAPI
+      const baseUrl = 'https://pokeapi.co/api/v2/';
+      // Get the user inputs
+      const endpoint = document.getElementById('endpoint').value.trim();
+      const params = document.getElementById('params').value.trim();
+      
+      // Construct the full URL
+      let url = baseUrl + endpoint;
+      // If query parameters are provided, append them properly to the URL.
+      if (params !== "") {
+        url += '?' + params;
+      }
+      
+      // Display a loading message
+      document.getElementById('response').textContent = 'Loading...';
+      
+      
+      // TO DO: Call fetch() to retrieve data from the constructed URL
+      // and show the data in <pre id="response">
+      fetch(url)
+        .then(Response => Response.json())
+        .then(data => 
+          document.getElementById('response').innerHTML = JSON.stringify(data, null, 2)
+          //note : you can use JSON.stringify(data) but the JSON.stringify(data, null, 2) is give you beatiful structer
+        )
+        .catch(error => console.error('Error fetching data:', error));
+
+    });
+  </script>
+</body>
+</html>
